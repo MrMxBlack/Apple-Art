@@ -42,6 +42,14 @@ Live BSC gas price: 0.05 gwei (50,000,000 wei), confirmed on two RPCs.
 
 **To unblock:** send **0.00030 BNB** to the deployer `0x066904bCa722825A936520C28C8568E351f0b887` — that covers deploy + configuration + all 33 reserve mints with buffer. A smaller top-up of **0.00021 BNB** covers deploy + configuration (the reserve mints can be finished by the owner afterwards). Then run `node deploy/deploy.mjs` — it deploys, sets the 33 reserved ids, mints the reserve Legendaries to the team wallet, opens the sale, transfers ownership to mee.ai, and verifies the final state on two RPCs.
 
+## Website
+
+- Built 2026-11-04 (dark Web3 single-page site): hero with the Legendary artwork, live stats, tiers section with all 4 artworks, how-it-works (BNB at the live rate, proceeds auto-forward to treasury, 100% of proceeds to future token liquidity), token + share-phase teaser, transparency section (treasury, 33-Legendary reserve, IPFS CIDs, GitHub), mint panel with quantity selector and live BNB estimate, FAQ. English, mobile responsive, images loaded from the IPFS gateway (Pinata, with an ipfs.io fallback in JS).
+- Sources: `~/workspace/apple-art/site/` (`index.html`, `styles.css`, `app.js`); identical copies live in this repo under `docs/` (commit `3bdc5b3ba1d5facbe57e8f928649fe3558b48b3d`, read-back verified via the connector).
+- Standalone preview for the user: `~/workspace/your_files/apple-art-website.html` (CSS/JS inlined, images from IPFS — opens without hosting).
+- Mint wiring: `docs/app.js` has one clearly marked `CONFIG.contractAddress` constant at the top — currently EMPTY, so the site runs in "Mint — Opening Soon" mode with the button disabled and CoinGecko-based BNB estimates. After deployment, set it to the contract address: the button goes live, prices switch to the exact on-chain `priceWei()`, minted/remaining counts go live, and the transparency section shows the address.
+- **GitHub Pages: NOT yet enabled.** The connector exposes no Pages tool and `gh` is not logged in on this machine, so it cannot be switched on from here (checked 2026-11-04; `https://mrmxblack.github.io/apple-art/` returns 404). **User step:** repo → Settings → Pages → Build and deployment → Source: "Deploy from a branch" → Branch: `main`, folder `/docs` → Save. The site will then serve at `https://mrmxblack.github.io/apple-art/`.
+
 ## Sourcify
 
 Pending deployment. After deploy: `node scripts/verify-sourcify.mjs <address> AppleArt.sol:AppleArt <creationTxHash>`.
