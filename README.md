@@ -7,8 +7,10 @@ One artwork per tier, soft origami-paper mascots — and a simple, public promis
 - **Mint price:** $0.10 per NFT, paid in BNB at the live Chainlink BNB/USD rate
 - **Tiers:** Common 2,002 · Rare 899 · Epic 333 · Legendary 99
 - **Team reserve:** 33 of the 99 Legendaries are reserved on-chain for the team; the public mint can never reach them. Public supply: 3,300.
-- **Contract:** deploying (address will be added here after deployment)
+- **Contract:** `0xe06FbCce9b843931253D36AFD2ACa75E8be78112` — deployed 2026-11-05, Sourcify exact match
 - **Chain:** BNB Chain (BSC, chain id 56)
+- **Mint website:** https://mrmxblack.github.io/Apple-Art/ (case-sensitive — capital A's; the lowercase address returns 404)
+- **Status: MINT IS LIVE.** Sale open; at the last check (2026-11-05) 33 minted (the team reserves), 3,300 public remaining. Full details: `DETAILS.md`. Agent mint prompt: `MINT-PROMPT.md`.
 
 ## 💧 Where the mint money goes — our public commitment
 
@@ -51,8 +53,9 @@ Tier assignment is deterministic and published in this repo
 - The public mint hands out token ids in order, automatically skipping the
   33 reserved ids.
 - `mintReserved(...)` — owner-only; mints reserved ids to the team wallet.
-- The sale starts closed and is opened by the owner after the reserve set is
-  in place. Minters pay their own gas. No per-wallet cap.
+- The sale was opened by the owner on 2026-11-05 after the reserve set was
+  minted, and is open now. Minters pay their own gas. No per-wallet cap
+  (50 per transaction maximum).
 
 ## Repository contents
 
@@ -60,6 +63,9 @@ Tier assignment is deterministic and published in this repo
 - `scripts/` — build, local tests, deploy, Sourcify verification
 - `assets/` — the 4 tier artworks (PNG), `assignment.json`, `reserve.json`, and the full 3,333-file `metadata/` folder
 - `PLAN.md`, `BUILD-RESULT.md`, `DEPLOY.md` — plan, build record, deployment record
+- `DETAILS.md` — every public detail in one place (live links, contract, deployment record, live status)
+- `MINT-PROMPT.md` — the prompt to give an AI agent so it can mint for you
+- `PROMO-PACK.md` — launch posts and promo material
 
 ## License
 
