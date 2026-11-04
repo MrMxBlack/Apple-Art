@@ -1,0 +1,15 @@
+{
+ "name": "Apple Art #473",
+ "description": "Apple Art \u2014 a 3,333-piece origami apple collection on BNB Chain.",
+ "image": "ipfs://bafybeiaiilulbxxqn2kuk6q6xtzroft3yggtp46efmja5wayacgzrwotxm/common.png",
+ "attributes": [
+  {
+   "trait_type": "Tier",
+   "value": "Common"
+  },
+  {
+   "trait_type": "Edition",
+   "value": "473 of 3333"
+  }
+ ]
+}
