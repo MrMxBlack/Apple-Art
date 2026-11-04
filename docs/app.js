@@ -9,7 +9,7 @@
    contract (priceWei) and the mint button goes live.
    ============================================================ */
 const CONFIG = {
-  contractAddress: "", // <-- AppleArt contract address goes here after deploy
+  contractAddress: "0xe06FbCce9b843931253D36AFD2ACa75E8be78112", // AppleArt contract on BSC (deployed 2026-11-05, sale open)
   chainId: 56,         // BNB Chain (BSC)
   rpcUrl: "https://bsc-dataseed.bnbchain.org",
   priceUsdPerNft: 0.10,
