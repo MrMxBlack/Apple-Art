@@ -1,0 +1,4 @@
+node_modules/
+deploy/deployer.json
+deploy/*deployer*.json
+*.key
