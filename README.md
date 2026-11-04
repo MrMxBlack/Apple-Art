@@ -55,7 +55,9 @@ Tier assignment is deterministic and published in this repo
 - `mintReserved(...)` — owner-only; mints reserved ids to the team wallet.
 - The sale was opened by the owner on 2026-11-05 after the reserve set was
   minted, and is open now. Minters pay their own gas. No per-wallet cap
-  (50 per transaction maximum).
+  in the contract (50 per transaction maximum). The official website
+  limits minting to 5 per wallet (website-enforced only, since
+  2026-11-05).
 
 ## Repository contents
 

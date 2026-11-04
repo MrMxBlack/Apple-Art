@@ -13,7 +13,8 @@ const CONFIG = {
   chainId: 56,         // BNB Chain (BSC)
   rpcUrl: "https://bsc-dataseed.bnbchain.org",
   priceUsdPerNft: 0.10,
-  maxPerTx: 50,
+  maxPerTx: 50,        // contract limit per transaction (on-chain)
+  websiteMaxPerWallet: 5, // website-only limit per wallet (owner decision 2026-11-05); the contract itself has no per-wallet cap
   totalSupply: 3333,
   publicSupply: 3300,
   fallbackBnbUsd: 700  // used only if the live price fetch fails
@@ -24,6 +25,7 @@ const SEL = {
   mint: "0xa0712d68",           // mint(uint256)
   priceWei: "0xb7ec2086",       // priceWei()
   totalMinted: "0xa2309ff8",    // totalMinted()
+  balanceOf: "0x70a08231",      // balanceOf(address)
   publicRemaining: "0x869c66da" // publicRemaining()
 };
 
@@ -43,6 +45,7 @@ document.querySelectorAll("img").forEach(function (img) {
 function $(id) { return document.getElementById(id); }
 function toHexQuantity(bn) { return "0x" + bn.toString(16); }
 function encodeUint(n) { return BigInt(n).toString(16).padStart(64, "0"); }
+function encodeAddress(a) { return a.toLowerCase().replace("0x", "").padStart(64, "0"); }
 
 async function rpcCall(data) {
   const res = await fetch(CONFIG.rpcUrl, {
@@ -71,7 +74,7 @@ const mintNote = $("mintNote");
 function getQty() {
   let q = parseInt(qtyInput.value, 10);
   if (isNaN(q) || q < 1) q = 1;
-  if (q > CONFIG.maxPerTx) q = CONFIG.maxPerTx;
+  if (q > CONFIG.websiteMaxPerWallet) q = CONFIG.websiteMaxPerWallet;
   return q;
 }
 
@@ -161,6 +164,18 @@ async function mint() {
       });
     }
     const q = getQty();
+    // Website-only per-wallet limit: count what this wallet already holds.
+    try {
+      const owned = await rpcCall(SEL.balanceOf + encodeAddress(from));
+      if (owned >= BigInt(CONFIG.websiteMaxPerWallet)) {
+        note("This wallet already holds " + owned.toString() + " Apple Art NFTs. The limit on this website is " + CONFIG.websiteMaxPerWallet + " per wallet.", "err");
+        return;
+      }
+      if (owned + BigInt(q) > BigInt(CONFIG.websiteMaxPerWallet)) {
+        note("Website limit: " + CONFIG.websiteMaxPerWallet + " per wallet. This wallet already holds " + owned.toString() + ", so you can mint at most " + (BigInt(CONFIG.websiteMaxPerWallet) - owned).toString() + " here.", "err");
+        return;
+      }
+    } catch (e) { /* balance read failed: the quantity cap above still applies */ }
     const priceWei = await rpcCall(SEL.priceWei); // exact price, read fresh
     const value = priceWei * BigInt(q);
     note("Confirm the transaction in your wallet…");

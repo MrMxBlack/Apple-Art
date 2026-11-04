@@ -29,6 +29,7 @@ Everything public about the Apple Art collection in one place. Last updated 2026
 - **Price:** $0.10 per NFT, charged in BNB at the live Chainlink BNB/USD rate (feed `0x0567F2323251f0Aab15c8dFb1967E4e8A7D42aeE`). Call `priceWei()` for the exact per-NFT price in wei at mint time — it moves with the BNB price.
   - Sample at the 2026-11-05 check: `priceWei()` = 139,613,371,761,076 wei (0.000139613371761076 BNB).
 - **Mint function:** `mint(quantity)`, payable. Maximum 50 per transaction. No token approval is needed. Overpayment is refunded in the same transaction. Minters pay their own gas.
+- **Website limit (owner decision, 2026-11-05):** the official website limits minting to **5 NFTs per wallet** — the quantity picker caps at 5 and the mint flow checks the connected wallet's current Apple Art balance before sending. This limit is enforced by the website only. The contract itself has no per-wallet cap, so direct contract calls can still mint up to 50 per transaction.
 - **Base URI:** `ipfs://bafybeigxo2xdalldu73esficzhnu62q5knc6v2bh4xdxn6bu52dk6cz2ym/`
 
 ## Live status (checked 2026-11-05, two RPCs agree)

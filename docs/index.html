@@ -125,7 +125,7 @@
     </div>
     <ul class="notes">
       <li>Public mint hands out token ids in order and automatically skips the 33 reserved Legendary ids.</li>
-      <li>Up to 50 apples per transaction. No per-wallet cap.</li>
+      <li>Max 5 apples per wallet on this website. The contract itself allows up to 50 per transaction and has no per-wallet cap, so the 5 limit is enforced by this website only.</li>
       <li>Artwork and metadata are pinned on IPFS, independent of this website.</li>
     </ul>
   </section>
@@ -202,10 +202,10 @@
       <div class="mint-body">
         <h2>Mint Apple Art</h2>
         <p class="mint-status" id="mintedStatus">3,300 apples available to the public · 33 Legendaries reserved for the team</p>
-        <label class="qty-label" for="qty">Quantity (max 50 per transaction)</label>
+        <label class="qty-label" for="qty">Quantity (max 5 per wallet on this website)</label>
         <div class="qty-row">
           <button class="qty-btn" id="qtyMinus" type="button" aria-label="Decrease quantity">−</button>
-          <input class="qty-input" id="qty" type="number" min="1" max="50" value="1" inputmode="numeric">
+          <input class="qty-input" id="qty" type="number" min="1" max="5" value="1" inputmode="numeric">
           <button class="qty-btn" id="qtyPlus" type="button" aria-label="Increase quantity">+</button>
         </div>
         <div class="price-rows">
