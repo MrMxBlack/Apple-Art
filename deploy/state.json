@@ -1,0 +1,122 @@
+{
+  "funding": {
+    "deployer": "0x066904bCa722825A936520C28C8568E351f0b887",
+    "balanceWei": "300000000000000",
+    "gasPriceWei": "50000000",
+    "needCoreWei": "199114045000000",
+    "needFullWei": "267264855000000"
+  },
+  "contract": "0xe06fbcce9b843931253d36afd2aca75e8be78112",
+  "deployTx": "0x67bbb3b85f94220eece58633b863cc1815d11863c8b36d61bcdedb8571c33fb7",
+  "deployGas": "2096607",
+  "setReservedTx": "0x60e562b09c2073630cbd3e17670a9fdcc10d4ab5d6cce1dfc25fac96c0219e6d",
+  "setReservedGas": "891089",
+  "reserveMinted": [
+    2065,
+    523,
+    1690,
+    1383,
+    710,
+    2541,
+    1355,
+    1835,
+    3094,
+    2958,
+    1546,
+    2420,
+    322,
+    3064,
+    3071,
+    821,
+    1411,
+    1107,
+    2793,
+    856,
+    2007,
+    234,
+    181,
+    949,
+    1271,
+    2611,
+    2911,
+    1564,
+    878,
+    2506,
+    1146,
+    2413,
+    80
+  ],
+  "reserveMintTxs": [
+    {
+      "hash": "0x25ef6da97e7e768c0c1c9f1bd1e79d1de8322f1992c82ed02db1f34dc677ae5f",
+      "ids": [
+        2065,
+        523,
+        1690,
+        1383,
+        710,
+        2541,
+        1355,
+        1835,
+        3094,
+        2958,
+        1546
+      ],
+      "gasUsed": "385146"
+    },
+    {
+      "hash": "0x70ac76e7ced5e5b6bce4736c80df14081e96b9447afe61bb4ae23632b50bfaf3",
+      "ids": [
+        2420,
+        322,
+        3064,
+        3071,
+        821,
+        1411,
+        1107,
+        2793,
+        856,
+        2007,
+        234
+      ],
+      "gasUsed": "350934"
+    },
+    {
+      "hash": "0x703541236df392913b52737ec69dfe6437b2c99bf559a39ca16f0b139693c5db",
+      "ids": [
+        181,
+        949,
+        1271,
+        2611,
+        2911,
+        1564,
+        878,
+        2506,
+        1146,
+        2413,
+        80
+      ],
+      "gasUsed": "350922"
+    }
+  ],
+  "setSaleActiveTx": "0x75cf5e3d21c417702d29657a5343be72e2a157c62f2e682549ffdb85ed2eb911",
+  "setSaleActiveGas": "46922",
+  "transferOwnershipTx": "0xfaf9b1db2affd5a7bab3c4730674b5c31009d821e8f20e7ce61cdb1a1236291d",
+  "transferOwnershipGas": "28675",
+  "verify": {
+    "rpc0": {
+      "owner": "0xB0cB52091aDd24aCb9542081a0f1d5a946998636",
+      "saleActive": true,
+      "totalMinted": "33",
+      "sampleTokenURI": "ipfs://bafybeigxo2xdalldu73esficzhnu62q5knc6v2bh4xdxn6bu52dk6cz2ym/2065.json",
+      "id7Reserved": false
+    },
+    "rpc1": {
+      "owner": "0xB0cB52091aDd24aCb9542081a0f1d5a946998636",
+      "saleActive": true,
+      "totalMinted": "33",
+      "sampleTokenURI": "ipfs://bafybeigxo2xdalldu73esficzhnu62q5knc6v2bh4xdxn6bu52dk6cz2ym/2065.json",
+      "id7Reserved": false
+    }
+  }
+}
